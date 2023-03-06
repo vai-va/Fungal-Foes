@@ -1,5 +1,5 @@
 {
-    "m_SelectedDeviceId": "",
+    "m_SelectedDeviceId": "RF8M31QMB3P",
     "m_SelectedPackage": {
         "deviceId": "",
         "name": "",
@@ -7,7 +7,38 @@
         "exited": false
     },
     "m_SelectedPriority": 0,
-    "m_KnownPackagesForSerialization": [],
+    "m_KnownPackagesForSerialization": [
+        {
+            "deviceId": "RF8M31QMB3P",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 27785,
+            "exited": true
+        },
+        {
+            "deviceId": "RF8M31QMB3P",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 7899,
+            "exited": true
+        },
+        {
+            "deviceId": "RF8M31QMB3P",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 10551,
+            "exited": true
+        },
+        {
+            "deviceId": "RF8M31QMB3P",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 11712,
+            "exited": true
+        },
+        {
+            "deviceId": "RF8M31QMB3P",
+            "name": "com.sec.android.app.launcher",
+            "processId": 24456,
+            "exited": false
+        }
+    ],
     "m_Tags": {
         "m_Entries": [
             {
@@ -41,9 +72,20 @@
         ]
     },
     "m_MemoryViewerState": {
-        "MemoryWindowHeight": 0.0,
-        "MemoryWindowWidth": 0.0,
-        "MemoryTypeEnabled": [],
+        "MemoryWindowHeight": 300.0,
+        "MemoryWindowWidth": 170.0,
+        "MemoryTypeEnabled": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+        ],
         "MemoryGroup": 2,
         "Behavior": 0
     },
