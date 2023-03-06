@@ -1,9 +1,9 @@
 {
     "m_SelectedDeviceId": "RF8M31QMB3P",
     "m_SelectedPackage": {
-        "deviceId": "RF8M31QMB3P",
-        "name": "com.DefaultCompany.com.unity.template.mobile2D",
-        "processId": 11712,
+        "deviceId": "",
+        "name": "",
+        "processId": 0,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -11,37 +11,31 @@
         {
             "deviceId": "RF8M31QMB3P",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 10517,
-            "exited": false
-        },
-        {
-            "deviceId": "RF8M31QMB3P",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 11057,
-            "exited": false
-        },
-        {
-            "deviceId": "RF8M31QMB3P",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 27785,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "RF8M31QMB3P",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 7899,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "RF8M31QMB3P",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 10551,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "RF8M31QMB3P",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 11712,
+            "exited": true
+        },
+        {
+            "deviceId": "RF8M31QMB3P",
+            "name": "com.sec.android.app.launcher",
+            "processId": 24456,
             "exited": false
         }
     ],
