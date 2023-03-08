@@ -56,7 +56,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + move * moveSpeed * Time.deltaTime);
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("BranchAttack"))
+        {
 
+        }
+        else
+        {
+            rb.MovePosition(rb.position + move * moveSpeed * Time.deltaTime);
+        }
     }
 }

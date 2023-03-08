@@ -1,31 +1,13 @@
 {
     "m_SelectedDeviceId": "RF8M31QMB3P",
     "m_SelectedPackage": {
-        "deviceId": "",
-        "name": "",
-        "processId": 0,
+        "deviceId": "RF8M31QMB3P",
+        "name": "com.DefaultCompany.com.unity.template.mobile2D",
+        "processId": 16294,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
-        {
-            "deviceId": "RF8M31QMB3P",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 27785,
-            "exited": true
-        },
-        {
-            "deviceId": "RF8M31QMB3P",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 7899,
-            "exited": true
-        },
-        {
-            "deviceId": "RF8M31QMB3P",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 10551,
-            "exited": true
-        },
         {
             "deviceId": "RF8M31QMB3P",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
@@ -36,6 +18,30 @@
             "deviceId": "RF8M31QMB3P",
             "name": "com.sec.android.app.launcher",
             "processId": 24456,
+            "exited": false
+        },
+        {
+            "deviceId": "RF8M31QMB3P",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 8452,
+            "exited": true
+        },
+        {
+            "deviceId": "RF8M31QMB3P",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 11142,
+            "exited": true
+        },
+        {
+            "deviceId": "RF8M31QMB3P",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 12914,
+            "exited": true
+        },
+        {
+            "deviceId": "RF8M31QMB3P",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 16294,
             "exited": false
         }
     ],
