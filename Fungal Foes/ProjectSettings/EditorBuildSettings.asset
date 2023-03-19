@@ -8,5 +8,14 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/LevelMenu.unity
+    guid: 0275c6d41920c49dfbe9c2bd0614fcfe
+  - enabled: 1
+    path: Assets/Scenes/StartMenu.unity
+    guid: 6e3fe5fb200a04b618e7828f2eb0b559
+  - enabled: 1
+    path: Assets/Scenes/Store.unity
+    guid: 92981ca8b58b14980a4cf4ab11e1d416
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: f7eac960c4ba19f4b90f9a926cbcde38, type: 2}
