@@ -22,12 +22,10 @@ public class Ai_Chase : MonoBehaviour
     {
         distance = Vector2.Distance(transform.position,Player.transform.position);
         Vector2 direction = Player.transform.position - transform.position;
-        transform.position = Vector2.MoveTowards(transform.position, Player.transform.position,speed * Time.deltaTime);
-
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         direction.Normalize();
         anim.SetFloat("x", direction.x);
         anim.SetFloat("y", direction.y);
+        transform.position = Vector2.MoveTowards(transform.position, Player.transform.position, speed * Time.deltaTime);
 
 
     }
