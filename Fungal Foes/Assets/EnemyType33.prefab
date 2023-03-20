@@ -120,3 +120,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   speed: 3
+  distanceFromPlayer: 0.5
