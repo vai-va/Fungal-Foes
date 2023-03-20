@@ -1526,6 +1526,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelSelect1
       objectReference: {fileID: 0}
+    - target: {fileID: 5496533201655297157, guid: 8fe3fece8fd23474db453ab189885988, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+    - target: {fileID: 5496533201655297157, guid: 8fe3fece8fd23474db453ab189885988, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fe3fece8fd23474db453ab189885988, type: 3}
 --- !u!224 &6924469292073573094 stripped
