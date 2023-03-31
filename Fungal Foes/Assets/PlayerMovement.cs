@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class PlayerMovement : MonoBehaviour
     Vector2 move;
     public float moveSpeed;
     public Animator animator;
+    public Button specialAttackButton;
+    public Button attackButton;
+
 
     //public Transform interactor;
 
@@ -56,13 +60,28 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("BranchAttack"))
+        AnimatorStateInfo animatorState = animator.GetCurrentAnimatorStateInfo(0);
+        if (animatorState.IsName("BranchAttack"))
         {
-
+            attackButton.enabled = false;
+            specialAttackButton.enabled = false;
+        }
+        else if (animatorState.IsName("PlayerDeath") || animatorState.IsName("PlayerDeathGhost") || animatorState.IsName("SpecialAttack"))
+        {
+            specialAttackButton.enabled = false;
+            attackButton.enabled = false;
         }
         else
         {
+            attackButton.enabled = true;
+            specialAttackButton.enabled = true;
+
             rb.MovePosition(rb.position + move * moveSpeed * Time.deltaTime);
+        }
+
+        if (specialAttackButton.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Pressed"))
+        {
+            specialAttackButton.enabled = false;
         }
     }
 }
