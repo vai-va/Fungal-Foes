@@ -206,17 +206,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1012174891}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: Play
-        m_Mode: 5
+      - m_Target: {fileID: 1012174886}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: ClickToAttack
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: BranchAttack
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &119372064
 MonoBehaviour:
@@ -719,7 +719,7 @@ GameObject:
   - component: {fileID: 1012174886}
   - component: {fileID: 1012174891}
   - component: {fileID: 1012174892}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -741,6 +741,15 @@ MonoBehaviour:
   Joystick: {fileID: 912275816}
   moveSpeed: 5
   animator: {fileID: 1012174891}
+  AttackPoint: {fileID: 1079162378}
+  AttackRange: 1.47
+  Enemylayers:
+    serializedVersion: 2
+    m_Bits: 64
+  Damage: 15
+  MaxHealth: 100
+  healthbar: {fileID: 1450953001}
+  AttackRate: 2.5
 --- !u!50 &1012174887
 Rigidbody2D:
   serializedVersion: 4
@@ -819,12 +828,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 50
-  m_Sprite: {fileID: -399879451, guid: e7c2af2c74002fb40a77cd0ffda84a22, type: 3}
+  m_Sprite: {fileID: -1129553499, guid: 914e45a8ef2a418449156ffe1ad185fb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.21, y: 0.2}
+  m_Size: {x: 0.21, y: 0.21}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -838,12 +847,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1012174885}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.15, y: 0, z: 0}
   m_LocalScale: {x: 10.213663, y: 10.213663, z: 10.213663}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1079162378}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1012174891
 Animator:
@@ -878,6 +888,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MainCamera: {fileID: 519420031}
+--- !u!1 &1079162377
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1079162378}
+  m_Layer: 7
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1079162378
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079162377}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.086, y: -0.03, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1012174890}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1450952999
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,7 +931,7 @@ GameObject:
   - component: {fileID: 1450953002}
   - component: {fileID: 1450953001}
   m_Layer: 5
-  m_Name: Helath Bar
+  m_Name: Health Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -977,9 +1018,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 0.2
+  m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 0.2
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1065,7 +1106,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1709261351
 GameObject:
@@ -1276,13 +1317,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnLocation: {fileID: 664340478}
-  spawnInterval: 10
+  spawnInterval: 8
   enemies:
-  - EnemyPrefab: {fileID: 1500408556009040482, guid: fb8d19755be121342a92345ec53752bf, type: 3}
+  - EnemyPrefab: {fileID: 5872835658920131546, guid: fb8d19755be121342a92345ec53752bf, type: 3}
     cost: 1
-  - EnemyPrefab: {fileID: 7858776092029435458, guid: a7338930c4bef2c4d8e2189db354ad2c, type: 3}
+  - EnemyPrefab: {fileID: 1773602719886437570, guid: 6ce3130e97547e94185cd77d5e235608, type: 3}
     cost: 2
-  - EnemyPrefab: {fileID: 687687212580599782, guid: 6ce3130e97547e94185cd77d5e235608, type: 3}
+  - EnemyPrefab: {fileID: 5039510116939850638, guid: a7338930c4bef2c4d8e2189db354ad2c, type: 3}
     cost: 3
   LevelValue: 10
   enemiesToSpawn: []
