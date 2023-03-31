@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     public Button specialAttackButton;
     public Button attackButton;
 
+    private bool hasPlayedSpecialAttack = false;
+
 
     //public Transform interactor;
 
@@ -38,6 +40,15 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetFloat("LastHorizontal", Joystick.Horizontal);
             animator.SetFloat("LastVertical", Joystick.Vertical);
+        }
+
+
+
+
+        if (specialAttackButton.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Pressed") && !hasPlayedSpecialAttack)
+        {
+            hasPlayedSpecialAttack = true;
+            animator.Play("SpecialAttack");
         }
 
         //if (move.x > 0)
@@ -82,6 +93,10 @@ public class PlayerMovement : MonoBehaviour
         if (specialAttackButton.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Pressed"))
         {
             specialAttackButton.enabled = false;
+        }
+        else
+        {
+            hasPlayedSpecialAttack = false;
         }
     }
 }

@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class MakePlayerUseSpecialAttack : StateMachineBehaviour
 {
+    Animator playerAnimator;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     //{
     //    
     //}
+
+    public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        // Play the SpecialAttack animation
+        playerAnimator.Play("SpecialAttack");
+    }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
