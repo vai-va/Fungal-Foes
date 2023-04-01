@@ -166,4 +166,12 @@ public class PlayerMovement : MonoBehaviour
         }
         Gizmos.DrawWireSphere(AttackPoint.position,AttackRange);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Coins"))
+        {
+            Destroy(collision.gameObject);
+        }
+    }
 }
