@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy_AI : MonoBehaviour
@@ -14,8 +12,10 @@ public class Enemy_AI : MonoBehaviour
     public float AttackRange = 2f;
     public LayerMask PlayerLayer;
     public int Damage;
+    private EnemySpawner enemySpawner; // Add reference to EnemySpawner script here
 
     private float distance;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +23,8 @@ public class Enemy_AI : MonoBehaviour
         Player = GameObject.FindWithTag("Player");
         currentHealth = Maxhealth;
 
+        // Find EnemySpawner script in the scene and assign it to the enemySpawner variable
+        enemySpawner = GameObject.FindObjectOfType<EnemySpawner>();
     }
 
     // Update is called once per frame
@@ -39,9 +41,10 @@ public class Enemy_AI : MonoBehaviour
         }
         else
         {
-                Attack();
+            Attack();
         }
     }
+
     void Attack()
     {
         Collider2D[] HitPlayer = Physics2D.OverlapCircleAll(AttackPoint.position, AttackRange, PlayerLayer);
@@ -50,18 +53,23 @@ public class Enemy_AI : MonoBehaviour
             player.GetComponent<PlayerMovement>().TakeDamage(Damage);
         }
     }
+
     public void TakeDamage(int damage)
     {
-        if(!anim.GetCurrentAnimatorStateInfo(0).IsName("Damaged"))
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Damaged"))
         {
             anim.SetTrigger("Hurt");
             currentHealth -= damage;
             if (currentHealth <= 0)
             {
                 Destroy(gameObject);
+
+                // Call DropCoins() method of EnemySpawner script
+                enemySpawner.DropCoins(transform.position);
             }
         }
     }
+
     private void OnDrawGizmosSelected()
     {
         if (AttackPoint == null)
@@ -71,3 +79,4 @@ public class Enemy_AI : MonoBehaviour
         Gizmos.DrawWireSphere(AttackPoint.position, AttackRange);
     }
 }
+

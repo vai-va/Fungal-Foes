@@ -59,10 +59,23 @@ public class EnemySpawner : MonoBehaviour
             }
         }
     }
+
+    public void DropCoins(Vector3 position)
+    {
+        foreach (Enemy enemy in enemies)
+        {
+            Instantiate(enemy.CoinPrefab, position, Quaternion.identity);
+        }
+    }
+
+
     [System.Serializable]
     public class Enemy
     {
         public GameObject EnemyPrefab;
+        public GameObject CoinPrefab;
         public int cost;
+        //public int CoinCount;
+
     }
 }
