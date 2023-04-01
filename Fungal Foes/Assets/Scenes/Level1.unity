@@ -1509,9 +1509,9 @@ MonoBehaviour:
   enemies:
   - EnemyPrefab: {fileID: 5872835658920131546, guid: fb8d19755be121342a92345ec53752bf, type: 3}
     cost: 1
-  - EnemyPrefab: {fileID: 5039510116939850638, guid: a7338930c4bef2c4d8e2189db354ad2c, type: 3}
-    cost: 2
   - EnemyPrefab: {fileID: 1773602719886437570, guid: 6ce3130e97547e94185cd77d5e235608, type: 3}
+    cost: 2
+  - EnemyPrefab: {fileID: 5286104382318641887, guid: a7338930c4bef2c4d8e2189db354ad2c, type: 3}
     cost: 3
   LevelValue: 10
   enemiesToSpawn: []
