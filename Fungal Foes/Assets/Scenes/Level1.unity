@@ -773,8 +773,18 @@ MonoBehaviour:
   Joystick: {fileID: 912275816}
   moveSpeed: 5
   animator: {fileID: 1012174891}
-  specialAttackButton: {fileID: 83869039}
-  attackButton: {fileID: 119372063}
+  AttackPoint: {fileID: 0}
+  AttackRange: 0.38
+  Enemylayers:
+    serializedVersion: 2
+    m_Bits: 64
+  Damage: 15
+  MaxHealth: 100
+  healthbar: {fileID: 0}
+  AttackRate: 2
+  invincabilityframes: 2
+  specialAttackButton: {fileID: 0}
+  attackButton: {fileID: 0}
 --- !u!50 &1012174887
 Rigidbody2D:
   serializedVersion: 4
@@ -853,7 +863,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 50
-  m_Sprite: {fileID: -399879451, guid: e7c2af2c74002fb40a77cd0ffda84a22, type: 3}
+  m_Sprite: {fileID: 1775442123, guid: 134817ab0d0df4641b6bd3581e943f07, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -17,11 +18,16 @@ public class PlayerMovement : MonoBehaviour
     private int currentHealth;
     public Healthbar healthbar;
     public float AttackRate = 2f;
-    private float NextAttackTime = 0f;
-    private bool IsAttacking;
     private Vector2 AttackPosition;
     public float invincabilityframes = 2f;
     private float nextHurtTime = 0f;
+
+
+    public Button specialAttackButton;
+    public Button attackButton;
+
+    private bool hasPlayedSpecialAttack = false;
+
     //public Transform interactor;
 
 
@@ -69,6 +75,11 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat("LastHorizontal", Joystick.Horizontal);
             animator.SetFloat("LastVertical", Joystick.Vertical);
         }
+        if (specialAttackButton.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Pressed") && !hasPlayedSpecialAttack)
+        {
+            hasPlayedSpecialAttack = true;
+            animator.Play("SpecialAttack");
+        }
 
         //if (move.x > 0)
         //{
@@ -90,20 +101,44 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(IsAttacking)
+        AnimatorStateInfo animatorState = animator.GetCurrentAnimatorStateInfo(0);
+        if (animatorState.IsName("BranchAttack"))
         {
-                if (Time.time > NextAttackTime)
-                {
-                    animator.SetTrigger("Attack");
-                    Attack();
-                    NextAttackTime = Time.time + 1f / AttackRate;
-                }
-            IsAttacking = false;
+            Attack();
+            attackButton.enabled = false;
+            specialAttackButton.enabled = false;
+        }
+        else if (animatorState.IsName("PlayerDeath") || animatorState.IsName("PlayerDeathGhost") || animatorState.IsName("SpecialAttack"))
+        {
+            specialAttackButton.enabled = false;
+            attackButton.enabled = false;
         }
         else
         {
+            attackButton.enabled = true;
+            specialAttackButton.enabled = true;
+
             rb.MovePosition(rb.position + move * moveSpeed * Time.deltaTime);
         }
+
+        if (specialAttackButton.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Pressed"))
+        {
+            specialAttackButton.enabled = false;
+        }
+        else
+        {
+            hasPlayedSpecialAttack = false;
+        }
+        //if (IsAttacking)
+        //{
+        //        if (Time.time > NextAttackTime)
+        //        {
+        //            animator.SetTrigger("Attack");
+        //            Attack();
+        //            NextAttackTime = Time.time + 1f / AttackRate;
+        //        }
+        //    IsAttacking = false;
+        //}
     }
     public void TakeDamage(int dmg)
     {
@@ -130,9 +165,5 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
         Gizmos.DrawWireSphere(AttackPoint.position,AttackRange);
-    }
-    public void ClickToAttack(bool isattacking)
-    {
-        IsAttacking = isattacking;
     }
 }
