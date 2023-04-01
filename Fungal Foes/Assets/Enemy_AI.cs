@@ -1,4 +1,5 @@
 using UnityEngine;
+using static EnemySpawner;
 
 public class Enemy_AI : MonoBehaviour
 {
@@ -13,7 +14,6 @@ public class Enemy_AI : MonoBehaviour
     public LayerMask PlayerLayer;
     public int Damage;
     private EnemySpawner enemySpawner; // Add reference to EnemySpawner script here
-
     private float distance;
 
     // Start is called before the first frame update
@@ -62,10 +62,11 @@ public class Enemy_AI : MonoBehaviour
             currentHealth -= damage;
             if (currentHealth <= 0)
             {
+                int coinValue = Random.Range(1, 4);
+                enemySpawner.DropCoins(transform.position, coinValue);
                 Destroy(gameObject);
-
-                // Call DropCoins() method of EnemySpawner script
-                enemySpawner.DropCoins(transform.position);
+                
+                
             }
         }
     }

@@ -10,6 +10,9 @@ public class EnemySpawner : MonoBehaviour
     public List<Enemy> enemies = new List<Enemy>();
     public float LevelValue;
     public List<GameObject> enemiesToSpawn = new List<GameObject>();
+    public GameObject CoinPrefab;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,22 +63,17 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    public void DropCoins(Vector3 position)
+    public void DropCoins(Vector3 position, int random)
     {
-        foreach (Enemy enemy in enemies)
-        {
-            Instantiate(enemy.CoinPrefab, position, Quaternion.identity);
-        }
+        Coin coin = Instantiate(CoinPrefab, position, Quaternion.identity).GetComponent<Coin>();
+        coin.coinValue = random;
     }
-
 
     [System.Serializable]
     public class Enemy
     {
         public GameObject EnemyPrefab;
-        public GameObject CoinPrefab;
         public int cost;
-        //public int CoinCount;
 
     }
 }
