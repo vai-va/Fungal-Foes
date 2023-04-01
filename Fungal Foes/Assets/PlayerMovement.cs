@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     private float NextAttackTime = 0f;
     private bool IsAttacking;
     private Vector2 AttackPosition;
+    public float invincabilityframes = 2f;
+    private float nextHurtTime = 0f;
     //public Transform interactor;
 
 
@@ -40,8 +42,8 @@ public class PlayerMovement : MonoBehaviour
         move.y = Joystick.Vertical;
         Vector2 Rightposition = new Vector2(AttackPosition.x, AttackPosition.y);
         Vector2 Leftposition = new Vector2(-AttackPosition.x, AttackPosition.y);
-        Vector2 Upposition = new Vector2(0f, AttackPosition.x);
-        Vector2 Downposition = new Vector2(0f, -AttackPosition.x);
+        Vector2 Upposition = new Vector2(0f, AttackPosition.x + 0.01f);
+        Vector2 Downposition = new Vector2(0f, -AttackPosition.x - 0.01f);
         if (move.x > 0)
         {
             AttackPoint.transform.localPosition = Rightposition;
@@ -105,9 +107,13 @@ public class PlayerMovement : MonoBehaviour
     }
     public void TakeDamage(int dmg)
     {
+        if(Time.time > nextHurtTime)
+        {
             animator.SetTrigger("Hurt");
             currentHealth -= dmg;
             healthbar.SetHealth(currentHealth);
+            nextHurtTime = Time.time + invincabilityframes;
+        }
     }
     void Attack()
     {

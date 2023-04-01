@@ -14,9 +14,6 @@ public class Enemy_AI : MonoBehaviour
     public float AttackRange = 2f;
     public LayerMask PlayerLayer;
     public int Damage;
-    private float Invicability_Time = 0f;
-    public float invincabilty_frames = 2f;
-    public float stuntime = 2f;
     private bool BeingDamaged = false;
 
     private float distance;
@@ -43,11 +40,7 @@ public class Enemy_AI : MonoBehaviour
         }
         else
         {
-            if(Time.time > Invicability_Time)
-            {
                 Attack();
-                Invicability_Time = Time.time + invincabilty_frames;
-            }
         }
     }
     void Attack()
