@@ -827,7 +827,7 @@ GameObject:
   - component: {fileID: 1012174886}
   - component: {fileID: 1012174891}
   - component: {fileID: 1012174892}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -859,8 +859,8 @@ MonoBehaviour:
   healthbar: {fileID: 1786889375}
   AttackRate: 2
   invincabilityframes: 2
-  specialAttackButton: {fileID: 0}
-  attackButton: {fileID: 0}
+  specialAttackButton: {fileID: 83869039}
+  attackButton: {fileID: 119372063}
 --- !u!50 &1012174887
 Rigidbody2D:
   serializedVersion: 4
@@ -1507,11 +1507,11 @@ MonoBehaviour:
   SpawnLocation: {fileID: 664340478}
   spawnInterval: 10
   enemies:
-  - EnemyPrefab: {fileID: 1500408556009040482, guid: fb8d19755be121342a92345ec53752bf, type: 3}
+  - EnemyPrefab: {fileID: 5872835658920131546, guid: fb8d19755be121342a92345ec53752bf, type: 3}
     cost: 1
-  - EnemyPrefab: {fileID: 7858776092029435458, guid: a7338930c4bef2c4d8e2189db354ad2c, type: 3}
+  - EnemyPrefab: {fileID: 5039510116939850638, guid: a7338930c4bef2c4d8e2189db354ad2c, type: 3}
     cost: 2
-  - EnemyPrefab: {fileID: 687687212580599782, guid: 6ce3130e97547e94185cd77d5e235608, type: 3}
+  - EnemyPrefab: {fileID: 1773602719886437570, guid: 6ce3130e97547e94185cd77d5e235608, type: 3}
     cost: 3
   LevelValue: 10
   enemiesToSpawn: []

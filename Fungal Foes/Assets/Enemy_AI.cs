@@ -14,7 +14,6 @@ public class Enemy_AI : MonoBehaviour
     public float AttackRange = 2f;
     public LayerMask PlayerLayer;
     public int Damage;
-    private bool BeingDamaged = false;
 
     private float distance;
     // Start is called before the first frame update
@@ -53,11 +52,14 @@ public class Enemy_AI : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
-        anim.SetTrigger("Hurt");
-        currentHealth -= damage;
-        if (currentHealth <= 0)
+        if(!anim.GetCurrentAnimatorStateInfo(0).IsName("Damaged"))
         {
-            Destroy(gameObject);
+            anim.SetTrigger("Hurt");
+            currentHealth -= damage;
+            if (currentHealth <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
     private void OnDrawGizmosSelected()
