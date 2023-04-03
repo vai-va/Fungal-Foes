@@ -1806,7 +1806,7 @@ MonoBehaviour:
     cost: 2
   - EnemyPrefab: {fileID: 5286104382318641887, guid: a7338930c4bef2c4d8e2189db354ad2c, type: 3}
     cost: 3
-  LevelValue: 10
+  LevelValue: 35
   enemiesToSpawn: []
   CoinPrefab: {fileID: 5211723524078355105, guid: 3b6277410de814dd8a04ff411914aedd, type: 3}
 --- !u!4 &2090153579

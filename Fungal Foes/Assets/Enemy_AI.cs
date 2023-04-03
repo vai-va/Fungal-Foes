@@ -39,7 +39,7 @@ public class Enemy_AI : MonoBehaviour
             anim.SetFloat("y", direction.y);
             transform.position = Vector2.MoveTowards(transform.position, Player.transform.position, speed * Time.deltaTime);
         }
-        else
+        else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Damaged"))
         {
             Attack();
         }

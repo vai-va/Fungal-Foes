@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 AttackPosition;
     public float invincabilityframes = 2f;
     private float nextHurtTime = 0f;
+    private bool IsDead = false;
+    private float delay = 0;
 
 
     public Button specialAttackButton;
@@ -50,19 +52,20 @@ public class PlayerMovement : MonoBehaviour
         Vector2 Leftposition = new Vector2(-AttackPosition.x, AttackPosition.y);
         Vector2 Upposition = new Vector2(0f, AttackPosition.x + 0.01f);
         Vector2 Downposition = new Vector2(0f, -AttackPosition.x - 0.01f);
-        if (move.x > 0)
+        bool usingSpeacialAttack = animator.GetCurrentAnimatorStateInfo(0).IsName("SpecialAttack");
+        if (move.x > 0 && !usingSpeacialAttack)
         {
             AttackPoint.transform.localPosition = Rightposition;
         }
-        if (move.x < 0)
+        if (move.x < 0 && !usingSpeacialAttack)
         {
             AttackPoint.transform.localPosition = Leftposition;
         }
-        if (move.y > 0.7)
+        if (move.y > 0.7 && !usingSpeacialAttack)
         {
             AttackPoint.transform.localPosition = Upposition;
         }
-        if (move.y < -0.7)
+        if (move.y < -0.7 && !usingSpeacialAttack)
         {
             AttackPoint.transform.localPosition = Downposition;
         }
@@ -108,7 +111,15 @@ public class PlayerMovement : MonoBehaviour
             attackButton.enabled = false;
             specialAttackButton.enabled = false;
         }
-        else if (animatorState.IsName("PlayerDeath") || animatorState.IsName("PlayerDeathGhost") || animatorState.IsName("SpecialAttack"))
+        else if(animatorState.IsName("SpecialAttack") && Time.time > delay)
+        {
+            StartCoroutine(SpecialAttack());
+            nextHurtTime = Time.time + 1;
+            specialAttackButton.enabled = false;
+            attackButton.enabled = false;
+            delay = Time.time + 5;
+        }
+        else if (animatorState.IsName("PlayerDeath") || animatorState.IsName("PlayerDeathGhost"))
         {
             specialAttackButton.enabled = false;
             attackButton.enabled = false;
@@ -142,11 +153,16 @@ public class PlayerMovement : MonoBehaviour
     }
     public void TakeDamage(int dmg)
     {
-        if(Time.time > nextHurtTime)
+        if(Time.time > nextHurtTime && !animator.GetCurrentAnimatorStateInfo(0).IsName("SpecialAttack"))
         {
             animator.SetTrigger("Hurt");
             currentHealth -= dmg;
             healthbar.SetHealth(currentHealth);
+            if(currentHealth <= 0 && !IsDead)
+            {
+                animator.SetTrigger("Death");
+                IsDead = true;
+            }
             nextHurtTime = Time.time + invincabilityframes;
         }
     }
@@ -156,6 +172,17 @@ public class PlayerMovement : MonoBehaviour
         foreach (Collider2D enemy in HitEnemies)
         {
             enemy.GetComponent<Enemy_AI>().TakeDamage(Damage);
+        }
+    }
+    IEnumerator SpecialAttack()
+    {
+        Vector2 center = new Vector2(0, 0);
+        AttackPoint.localPosition = center;
+        yield return new WaitForSeconds(1.5f);
+        Collider2D[] HitEnemies = Physics2D.OverlapCircleAll(AttackPoint.localPosition, AttackRange*2, Enemylayers);
+        foreach (Collider2D enemy in HitEnemies)
+        {
+            enemy.GetComponent<Enemy_AI>().TakeDamage(Damage*2);
         }
     }
     private void OnDrawGizmosSelected()
