@@ -119,7 +119,7 @@ public class PlayerMovement : MonoBehaviour
             attackButton.enabled = false;
             delay = Time.time + 5;
         }
-        else if (animatorState.IsName("PlayerDeath") || animatorState.IsName("PlayerDeathGhost"))
+        else if (animatorState.IsName("PlayerDeath") || animatorState.IsName("PlayerDeathGhost") || animatorState.IsName("SpecialAttack"))
         {
             specialAttackButton.enabled = false;
             attackButton.enabled = false;
