@@ -179,7 +179,7 @@ public class PlayerMovement : MonoBehaviour
         Vector2 center = new Vector2(0, 0);
         AttackPoint.localPosition = center;
         yield return new WaitForSeconds(1.5f);
-        Collider2D[] HitEnemies = Physics2D.OverlapCircleAll(AttackPoint.localPosition, AttackRange*2, Enemylayers);
+        Collider2D[] HitEnemies = Physics2D.OverlapCircleAll(AttackPoint.position, AttackRange*2, Enemylayers);
         foreach (Collider2D enemy in HitEnemies)
         {
             enemy.GetComponent<Enemy_AI>().TakeDamage(Damage*2);
