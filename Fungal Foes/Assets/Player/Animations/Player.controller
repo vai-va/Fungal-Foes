@@ -127,6 +127,32 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1102 &-7380095149125420855
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Sword_Attack_Right
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: ce31d0d2565678f4590b80ddf716f51f, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1101 &-7304439183758574156
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -699,16 +725,8 @@ BlendTree:
     m_DirectBlendParameter: Horizontal
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 4b73a13e3eb223046bb50006dfbdea1a, type: 2}
-    m_Threshold: 0.33333334
-    m_Position: {x: 0, y: 1}
-    m_TimeScale: 1
-    m_CycleOffset: 0
-    m_DirectBlendParameter: Horizontal
-    m_Mirror: 0
-  - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 1776c0addb9663d4e8d665605e69b01e, type: 2}
-    m_Threshold: 0.6666667
+    m_Threshold: 0.33333334
     m_Position: {x: -1, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
@@ -716,8 +734,16 @@ BlendTree:
     m_Mirror: 0
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: ea7ca2eccb32c4141be27b59e94f7228, type: 2}
-    m_Threshold: 1
+    m_Threshold: 0.6666667
     m_Position: {x: 1, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Horizontal
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 7400000, guid: 4b73a13e3eb223046bb50006dfbdea1a, type: 2}
+    m_Threshold: 1
+    m_Position: {x: 0, y: 1}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: Horizontal
@@ -822,7 +848,7 @@ AnimatorStateMachine:
     m_Position: {x: 30, y: 240, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7923325145834301616}
-    m_Position: {x: -180, y: 490, z: 0}
+    m_Position: {x: 30, y: 560, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3747400773295614679}
     m_Position: {x: 300, y: 20, z: 0}
@@ -831,13 +857,16 @@ AnimatorStateMachine:
     m_Position: {x: 570, y: 20, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3356580262232189757}
-    m_Position: {x: -180, y: 580, z: 0}
+    m_Position: {x: -200, y: 520, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3733547272842436082}
     m_Position: {x: -430, y: 140, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6841764414181486018}
     m_Position: {x: -320, y: 310, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -7380095149125420855}
+    m_Position: {x: -285, y: 375, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: 7939452899861092396}
