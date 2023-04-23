@@ -2820,6 +2820,8 @@ MonoBehaviour:
   enemies:
   - EnemyPrefab: {fileID: 5288553784741861976, guid: 7214338762023ac47a5a9d8ec2a34301, type: 3}
     cost: 20
+  - EnemyPrefab: {fileID: 2360171602974957495, guid: 9f98490ce109d7149baf477dae91c8c5, type: 3}
+    cost: 15
   LevelValue: 60
   enemiesToSpawn: []
   CoinPrefab: {fileID: 5211723524078355105, guid: 3b6277410de814dd8a04ff411914aedd, type: 3}
@@ -2955,6 +2957,8 @@ MonoBehaviour:
     cost: 2
   - EnemyPrefab: {fileID: 8949718119161728458, guid: a7338930c4bef2c4d8e2189db354ad2c, type: 3}
     cost: 3
+  - EnemyPrefab: {fileID: 2360171602974957495, guid: 9f98490ce109d7149baf477dae91c8c5, type: 3}
+    cost: 15
   LevelValue: 35
   enemiesToSpawn: []
   CoinPrefab: {fileID: 5211723524078355105, guid: 3b6277410de814dd8a04ff411914aedd, type: 3}
