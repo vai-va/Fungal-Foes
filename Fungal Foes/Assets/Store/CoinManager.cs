@@ -8,10 +8,10 @@ public class CoinManager : MonoBehaviour
 {
     public static CoinManager instance;
     public TextMeshProUGUI text;
-    int score;
+    public int score;
 
-    // Start is called before the first frame update
-    void Start()
+    // Awake is called before the Start method
+    void Awake()
     {
         if (instance == null)
         {
@@ -26,8 +26,13 @@ public class CoinManager : MonoBehaviour
                 text.text = "X" + score.ToString();
             }
         }
-
     }
+
+    public int GetScore()
+    {
+        return score;
+    }
+
 
     public void ChangeScore(int coinValue)
     {
@@ -35,6 +40,6 @@ public class CoinManager : MonoBehaviour
         text.text = "X" + score.ToString();
         PlayerPrefs.SetInt("CoinScore", score);
         PlayerPrefs.Save();
-
     }
 }
+

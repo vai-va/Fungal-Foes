@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1cc4affcb0f94e43a4178b6eaa573b1, type: 3}
-  m_Name: Branch
+  m_Name: Sword
   m_EditorClassIdentifier: 
-  title: Branch
-  baseCost: 0
-  image: {fileID: 21300000, guid: 7de9991e894258944ae81aca3f852b4c, type: 3}
+  title: Sword
+  baseCost: 150
+  image: {fileID: 21300000, guid: 4a81c35416e155349948c3ef0afc6561, type: 3}
