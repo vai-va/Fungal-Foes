@@ -77,7 +77,6 @@ public class Enemy_AI : MonoBehaviour
         }
     IEnumerator waitForAnimation()
     {
-        Debug.Log("waiting");
         yield return new WaitForSeconds(1.3f);
         int coinValue = Random.Range(1, 4);
         enemySpawner.DropCoins(transform.position, coinValue);

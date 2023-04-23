@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  Maxhealth: 100
+  Maxhealth: 75
   currentHealth: 70
   distanceFromPlayer: 1.5
   AttackPoint: {fileID: 8949718119060930537}
