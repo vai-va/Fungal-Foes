@@ -24,7 +24,6 @@ public class PlayerMovement : MonoBehaviour
     private bool IsDead = false;
     private float delay = 0;
 
-
     public Button specialAttackButton;
     public Button attackButton;
 

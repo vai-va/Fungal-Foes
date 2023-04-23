@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using static EnemySpawner;
 
@@ -30,18 +31,25 @@ public class Enemy_AI : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        distance = Vector2.Distance(transform.position, Player.transform.position);
-        if (distance > distanceFromPlayer && !anim.GetCurrentAnimatorStateInfo(0).IsName("Damaged"))
+        if(anim.GetBool("IsDead"))
         {
-            Vector2 direction = Player.transform.position - transform.position;
-            direction.Normalize();
-            anim.SetFloat("x", direction.x);
-            anim.SetFloat("y", direction.y);
-            transform.position = Vector2.MoveTowards(transform.position, Player.transform.position, speed * Time.deltaTime);
+            StartCoroutine(waitForAnimation());
         }
-        else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Damaged"))
+        else
         {
-            Attack();
+            distance = Vector2.Distance(transform.position, Player.transform.position);
+            if (distance > distanceFromPlayer && !anim.GetCurrentAnimatorStateInfo(0).IsName("Damaged"))
+            {
+                Vector2 direction = Player.transform.position - transform.position;
+                direction.Normalize();
+                anim.SetFloat("x", direction.x);
+                anim.SetFloat("y", direction.y);
+                transform.position = Vector2.MoveTowards(transform.position, Player.transform.position, speed * Time.deltaTime);
+            }
+            else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Damaged"))
+            {
+                Attack();
+            }
         }
     }
 
@@ -54,23 +62,27 @@ public class Enemy_AI : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
-    {
-        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Damaged"))
+        public void TakeDamage(int damage)
+        {
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Damaged") && !anim.GetBool("IsDead"))
         {
             anim.SetTrigger("Hurt");
             currentHealth -= damage;
             if (currentHealth <= 0)
             {
-                int coinValue = Random.Range(1, 4);
-                enemySpawner.DropCoins(transform.position, coinValue);
-                Destroy(gameObject);
-                
-                
+                anim.SetBool("IsDead", true);
             }
         }
-    }
 
+        }
+    IEnumerator waitForAnimation()
+    {
+        Debug.Log("waiting");
+        yield return new WaitForSeconds(1.3f);
+        int coinValue = Random.Range(1, 4);
+        enemySpawner.DropCoins(transform.position, coinValue);
+        Destroy(gameObject);
+    }
     private void OnDrawGizmosSelected()
     {
         if (AttackPoint == null)
