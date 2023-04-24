@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1cc4affcb0f94e43a4178b6eaa573b1, type: 3}
+  m_Script: {fileID: 11500000, guid: 15f582ec4a49040a88e56bbc0c0fe453, type: 3}
   m_Name: SpeedUp
   m_EditorClassIdentifier: 
-  title: 
-  baseCost: 0
-  image: {fileID: 0}
+  title: Speed
+  baseCost: 175
