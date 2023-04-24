@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
             currentHealth = MaxHealth;
         }
 
-        float speed = PlayerPrefs.GetFloat("Speed");
+        float speed = PlayerPrefs.GetFloat("Speed", moveSpeed);
         moveSpeed = speed;
 
         int damage = PlayerPrefs.GetInt("SpecialAtackDamage", SpecialAtackDamage);
