@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  Maxhealth: 5000
+  Maxhealth: 50
   currentHealth: 50
   distanceFromPlayer: 1
   AttackPoint: {fileID: 1225973318292345500}
@@ -140,7 +140,7 @@ MonoBehaviour:
   PlayerLayer:
     serializedVersion: 2
     m_Bits: 128
-  Damage: 50
+  Damage: 10
 --- !u!95 &1225973318697894665
 Animator:
   serializedVersion: 5
