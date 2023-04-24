@@ -14,7 +14,7 @@ public class StoreManagerUP : MonoBehaviour
     public StoreTemplateUP[] storePanels;
     public Button[] purchaseButton;
     int oldMaxHealth = 100;
-    int oldSpeed = 5;
+    //int oldSpeed = 5;
     int oldDamage = 30;
 
     //set max health
@@ -38,12 +38,13 @@ public class StoreManagerUP : MonoBehaviour
     {
         for (int i = 0; i < storeItem.Length; i++)
         {
-
+            Debug.Log("item" + PlayerPrefs.GetInt(storeItem[i].title));
+            Debug.Log("item" + PlayerPrefs.HasKey(storeItem[i].title).ToString());
             storePanels[i].titleTXT.text = storeItem[i].title;
             storePanels[i].costTXT.text = storeItem[i].baseCost.ToString() + " COINS";
 
             // Update the purchase button based on the saved value
-            if (PlayerPrefs.HasKey(storeItem[i].title) && PlayerPrefs.GetInt(storeItem[i].title) == 1)
+            if (PlayerPrefs.HasKey(storeItem[i].title) && PlayerPrefs.GetInt(storeItem[i].title) == 5)
             {
                 purchaseButton[i].GetComponentInChildren<TMP_Text>().text = "PURCHASED";
                 purchaseButton[i].interactable = false;
@@ -67,7 +68,7 @@ public class StoreManagerUP : MonoBehaviour
 
                     if (PlayerPrefs.HasKey(storeItem[i].title))
                     {
-                        if (PlayerPrefs.GetInt(storeItem[i].title) == 1)
+                        if (PlayerPrefs.GetInt(storeItem[i].title) == 5)
                         {
                             // Disable the button and set the text to "PURCHASED" for items that have already been bought
                             purchaseButton[i].GetComponentInChildren<TMP_Text>().text = "PURCHASED";
@@ -96,140 +97,32 @@ public class StoreManagerUP : MonoBehaviour
     }
 
 
-    //public void BuyItem(int itemIndex)
-    //{
-    //    if (coins < storeItem[itemIndex].baseCost)
-    //    {
-    //        // If the player does not have enough coins, do nothing
-    //        return;
-    //    }
-
-    //    // Check if the item is already purchased
-    //    if (PlayerPrefs.HasKey(storeItem[itemIndex].title) && PlayerPrefs.GetInt(storeItem[itemIndex].title) == 1)
-    //    {
-    //        // If the item is already purchased, set it as the current item and update the UI
-    //        CheckPurchase();
-    //    }
-
-    //    // Use switch statement to determine what to do for each item
-    //    switch (itemIndex)
-    //    {
-    //        case 0:
-    //            // Subtract the cost of the item from the coins
-    //            coins -= storeItem[itemIndex].baseCost;
-
-    //            // Update the coin value in all scenes where it is visible
-    //            CoinManager.instance.ChangeScore(-storeItem[itemIndex].baseCost);
-
-    //            // Save the purchased item
-    //            PlayerPrefs.SetInt(storeItem[itemIndex].title, 1);
-    //            PlayerPrefs.Save();
-
-    //            CheckPurchase();
-
-    //            float newMaxHealth = oldMaxHealth * 2f; // double the old max health
-    //            PlayerPrefs.SetFloat("MaxHealth", newMaxHealth);
-
-    //            break;
-
-    //        case 1:
-    //            // Subtract the cost of the item from the coins
-    //            coins -= storeItem[itemIndex].baseCost;
-
-    //            // Update the coin value in all scenes where it is visible
-    //            CoinManager.instance.ChangeScore(-storeItem[itemIndex].baseCost);
-
-    //            // Save the purchased item
-    //            PlayerPrefs.SetInt(storeItem[itemIndex].title, 1);
-    //            PlayerPrefs.Save();
-
-    //            CheckPurchase();
-
-    //            float newSpeed = oldSpeed + 2; // increase speed by 2
-    //            PlayerPrefs.SetFloat("Speed", newSpeed);
-
-    //            break;
-
-    //        default:
-    //            // Subtract the cost of the item from the coins
-    //            coins -= storeItem[itemIndex].baseCost;
-
-    //            // Update the coin value in all scenes where it is visible
-    //            CoinManager.instance.ChangeScore(-storeItem[itemIndex].baseCost);
-
-    //            // Save the purchased item
-    //            PlayerPrefs.SetInt(storeItem[itemIndex].title, 1);
-    //            PlayerPrefs.Save();
-
-    //            CheckPurchase();
-
-    //            break;
-    //    }
-    //}
-
-
-    //public void BuyItemHealth()
-    //{
-    //    int itemIndex = 0;
-    //    if (coins < storeItem[itemIndex].baseCost)
-    //    {
-    //        // If the player does not have enough coins, do nothing
-    //        return;
-    //    }
-
-    //    // Check if the item is already purchased
-    //    if (PlayerPrefs.HasKey(storeItem[itemIndex].title) && PlayerPrefs.GetInt(storeItem[itemIndex].title) == 1)
-    //    {
-    //        // If the item is already purchased, set it as the current item and update the UI
-    //        CheckPurchase();
-    //    }
-
-    //    // Subtract the cost of the item from the coins
-    //    coins -= storeItem[itemIndex].baseCost;
-
-    //    // Update the coin value in all scenes where it is visible
-    //    CoinManager.instance.ChangeScore(-storeItem[itemIndex].baseCost);
-
-    //    // Save the purchased item
-    //    PlayerPrefs.SetInt(storeItem[itemIndex].title, 1);
-    //    PlayerPrefs.Save();
-
-    //    CheckPurchase();
-
-    //    float newMaxHealth = oldMaxHealth * 2f; // double the old max health
-    //    PlayerPrefs.SetFloat("MaxHealth", newMaxHealth);
-    //}
-
-
     public void BuyItems(int itemIndex)
     {
-        if (coins < storeItem[itemIndex].baseCost)
-        {
-            // If the player does not have enough coins, do nothing
-            return;
-        }
-
-        // Check if the item is already purchased
-        if (PlayerPrefs.HasKey(storeItem[itemIndex].title) && PlayerPrefs.GetInt(storeItem[itemIndex].title) == 1)
+        if (PlayerPrefs.HasKey(storeItem[itemIndex].title) && PlayerPrefs.GetInt(storeItem[itemIndex].title) == 5)
         {
             // If the item is already purchased, set it as the current item and update the UI
             CheckPurchase();
+            return;
         }
-        else
+
+        int itemCost = storeItem[itemIndex].baseCost;
+        if (coins >= itemCost)
         {
             // Subtract the cost of the item from the coins
-            coins -= storeItem[itemIndex].baseCost;
+            coins -= itemCost;
 
             // Update the coin value in all scenes where it is visible
-            CoinManager.instance.ChangeScore(-storeItem[itemIndex].baseCost);
+            CoinManager.instance.ChangeScore(-itemCost);
 
             // Save the purchased item
-            PlayerPrefs.SetInt(storeItem[itemIndex].title, 1);
+            PlayerPrefs.SetInt(storeItem[itemIndex].title, 5);
             PlayerPrefs.Save();
 
             CheckPurchase();
         }
     }
+
 
     public void SetHealth()
     {
@@ -237,30 +130,15 @@ public class StoreManagerUP : MonoBehaviour
         PlayerPrefs.SetFloat("MaxHealth", newMaxHealth);
     }
 
-    public void SetSpeed()
-    {
-        float newSpeed = oldSpeed + 2; // increase speed by 2
-        PlayerPrefs.SetFloat("Speed", newSpeed);
-    }
+    //public void SetSpeed()
+    //{
+    //    float newSpeed = oldSpeed + 2; // increase speed by 2
+    //    PlayerPrefs.SetFloat("Speed", newSpeed);
+    //}
 
     public void SetAttack()
     {
         int newDamage = oldDamage + 20; // increase speed by 2
         PlayerPrefs.SetInt("SpecialAtackDamage", newDamage);
-    }
-
-    public void SetThings(int index)
-    {
-        if (index == 0)
-        {
-            float newMaxHealth = oldMaxHealth * 2f; // double the old max health
-            PlayerPrefs.SetFloat("MaxHealth", newMaxHealth);
-        }
-
-        else if (index == 2)
-        {
-            float newSpeed = oldSpeed + 2; // increase speed by 2
-            PlayerPrefs.SetFloat("Speed", newSpeed);
-        }
     }
 }

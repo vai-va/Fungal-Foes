@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
         //ResetMaxHealth();
         //ResetMaxSpeed();
         //ResetMaxAttack();
+
         currentHealth = MaxHealth;
         healthbar.SetMaxhealth(MaxHealth);
         float savedMaxHealth = PlayerPrefs.GetFloat("MaxHealth");
@@ -50,10 +51,7 @@ public class PlayerMovement : MonoBehaviour
             currentHealth = MaxHealth;
         }
 
-        // Retrieve the "Speed" value from PlayerPrefs
-        float speed = PlayerPrefs.GetFloat("Speed", moveSpeed);
-
-        // Set the moveSpeed variable to the retrieved value
+        float speed = PlayerPrefs.GetFloat("Speed");
         moveSpeed = speed;
 
         int damage = PlayerPrefs.GetInt("SpecialAtackDamage", SpecialAtackDamage);
