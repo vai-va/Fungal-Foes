@@ -1526,6 +1526,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   Damage: 15
+  SpecialAtackDamage: 30
   MaxHealth: 100
   healthbar: {fileID: 1786889375}
   AttackRate: 2
@@ -1808,6 +1809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1394977669}
+  score: 0
 --- !u!4 &1121357040
 Transform:
   m_ObjectHideFlags: 0

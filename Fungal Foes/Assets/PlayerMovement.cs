@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public float AttackRange = 0.5f;
     public LayerMask Enemylayers;
     public int Damage;
+    public int SpecialAtackDamage;
     public int MaxHealth;
     private int currentHealth;
     public Healthbar healthbar;
@@ -182,7 +183,7 @@ public class PlayerMovement : MonoBehaviour
         Collider2D[] HitEnemies = Physics2D.OverlapCircleAll(AttackPoint.position, AttackRange*2, Enemylayers);
         foreach (Collider2D enemy in HitEnemies)
         {
-            enemy.GetComponent<Enemy_AI>().TakeDamage(Damage*2);
+            enemy.GetComponent<Enemy_AI>().TakeDamage(SpecialAtackDamage);
         }
     }
     private void OnDrawGizmosSelected()
