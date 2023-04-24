@@ -37,6 +37,7 @@ public class CoinManager : MonoBehaviour
     public void ChangeScore(int coinValue)
     {
         score += coinValue;
+        score += 10;
         text.text = "X" + score.ToString();
         PlayerPrefs.SetInt("CoinScore", score);
         PlayerPrefs.Save();
