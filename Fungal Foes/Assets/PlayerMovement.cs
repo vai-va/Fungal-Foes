@@ -34,14 +34,41 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        //ResetMaxHealth();
         currentHealth = MaxHealth;
         healthbar.SetMaxhealth(MaxHealth);
-        AttackPosition = AttackPoint.localPosition;
+        float savedMaxHealth = PlayerPrefs.GetFloat("MaxHealth");
+        if (savedMaxHealth != 0f)
+        {
+            MaxHealth = Mathf.FloorToInt(savedMaxHealth);
+            healthbar.SetMaxhealth(MaxHealth);
+            currentHealth = MaxHealth;
+        }
+
+        //// Retrieve the "Speed" value from PlayerPrefs
+        //float speed = PlayerPrefs.GetFloat("Speed", moveSpeed);
+
+        //// Set the moveSpeed variable to the retrieved value
+        //moveSpeed = speed;
+
     }
+
+    public void ResetMaxHealth()
+    {
+        PlayerPrefs.DeleteKey("MaxHealth");
+        MaxHealth = 100; // default maximum health value
+        healthbar.SetMaxhealth(MaxHealth);
+    }
+
+    //public void ResetMaxSpeed()
+    //{
+    //    PlayerPrefs.DeleteKey("Speed");
+    //    moveSpeed = 5; // default maximum health value
+    //}
+
 
     // Update is called once per frame
     void Update()
