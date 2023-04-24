@@ -13,13 +13,16 @@ public class StoreManagerUP : MonoBehaviour
     public StoreTemplateUP[] storePanels;
     public Button[] purchaseButton;
 
+    //set max health
+    // speed
+    //spec attack
     private void Start()
     {
-        PlayerPrefs.DeleteKey("CurrentItem");
-        for (int i = 0; i < storeItem.Length; i++)
-        {
-            PlayerPrefs.DeleteKey(storeItem[i].title);
-        }
+        //PlayerPrefs.DeleteKey("CurrentItem");
+        //for (int i = 0; i < storeItem.Length; i++)
+        //{
+        //    PlayerPrefs.DeleteKey(storeItem[i].title);
+        //}
         coinManager = CoinManager.instance;
         coins = coinManager.score;
         LoadPanels();
