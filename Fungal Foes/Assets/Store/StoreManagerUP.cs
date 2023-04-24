@@ -36,13 +36,43 @@ public class StoreManagerUP : MonoBehaviour
             storePanels[i].titleTXT.text = storeItem[i].title;
             storePanels[i].costTXT.text = storeItem[i].baseCost.ToString() + " COINS";
 
-            //Check if the item is bought and update the button text accordingly
-            if (PlayerPrefs.HasKey(storeItem[i].title) && PlayerPrefs.GetInt(storeItem[i].title) == 1)
+            // Always set the button text to "BUY" and enable the button
+            purchaseButton[i].GetComponentInChildren<TMP_Text>().text = "BUY";
+            purchaseButton[i].interactable = true;
+        }
+    }
+
+    public void CheckPurchase()
+    {
+        for (int i = 0; i < storeItem.Length; i++)
+        {
+            if (purchaseButton != null && purchaseButton.Length > i)
             {
-                purchaseButton[i].GetComponentInChildren<TMP_Text>().text = "USE";
+                if (coins >= storeItem[i].baseCost)
+                {
+                    if (PlayerPrefs.HasKey(storeItem[i].title) && PlayerPrefs.GetInt(storeItem[i].title) == 1)
+                    {
+                        // Disable the button and set the text to "PURCHASED" for items that have already been bought
+                        purchaseButton[i].GetComponentInChildren<TMP_Text>().text = "PURCHASED";
+                        purchaseButton[i].interactable = false;
+                    }
+                    else
+                    {
+                        // Enable the button and set the text to "BUY" for items that have not been bought yet
+                        purchaseButton[i].GetComponentInChildren<TMP_Text>().text = "BUY";
+                        purchaseButton[i].interactable = true;
+                    }
+                }
+                else
+                {
+                    // Disable the button and set the text to "INSUFFICIENT FUNDS" for items that the player can't afford
+                    purchaseButton[i].GetComponentInChildren<TMP_Text>().text = "BUY";
+                    purchaseButton[i].interactable = false;
+                }
             }
         }
     }
+
 
     public void BuyItem(int itemIndex)
     {
@@ -74,42 +104,6 @@ public class StoreManagerUP : MonoBehaviour
         }
     }
 
-    public void CheckPurchase()
-    {
-        for (int i = 0; i < storeItem.Length; i++)
-        {
-            if (purchaseButton != null && purchaseButton.Length > i)
-            {
-                if (coins >= storeItem[i].baseCost)
-                {
-                    purchaseButton[i].interactable = true;
-
-                    if (PlayerPrefs.HasKey(storeItem[i].title) && PlayerPrefs.GetInt(storeItem[i].title) == 1)
-                    {
-                        if (PlayerPrefs.GetString("CurrentItem") == storeItem[i].title)
-                        {
-                            purchaseButton[i].GetComponentInChildren<TMP_Text>().text = "USING";
-                            purchaseButton[i].interactable = false;
-                        }
-                        else
-                        {
-                            purchaseButton[i].GetComponentInChildren<TMP_Text>().text = "USE";
-                            purchaseButton[i].interactable = true;
-                        }
-                    }
-                    else
-                    {
-                        purchaseButton[i].GetComponentInChildren<TMP_Text>().text = "BUY";
-                        purchaseButton[i].interactable = true;
-                    }
-                }
-                else
-                {
-                    purchaseButton[i].interactable = false;
-                }
-            }
-        }
-    }
 
     public void UseItem(int itemIndex)
     {
