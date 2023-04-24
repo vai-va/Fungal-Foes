@@ -154,7 +154,7 @@ MonoBehaviour:
   speed: 1.5
   Maxhealth: 60
   currentHealth: 0
-  distanceFromPlayer: 0.8
+  distanceFromPlayer: 0.7
   AttackPoint: {fileID: 2360171602583954600}
   AttackRange: 0.8
   PlayerLayer:

@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 AttackPosition;
     public float invincabilityframes = 2f;
     private float nextHurtTime = 0f;
-    private bool IsDead = false;
+    public bool IsDead = false;
     private float delay = 0;
 
     public Button specialAttackButton;
@@ -104,11 +104,10 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         AnimatorStateInfo animatorState = animator.GetCurrentAnimatorStateInfo(0);
-        if (animatorState.IsName("BranchAttack"))
+        if (animatorState.IsName("PlayerDeath") || animatorState.IsName("PlayerDeathGhost") || animatorState.IsName("SpecialAttack"))
         {
-            Attack();
-            attackButton.enabled = false;
             specialAttackButton.enabled = false;
+            attackButton.enabled = false;
         }
         else if(animatorState.IsName("SpecialAttack") && Time.time > delay)
         {
@@ -118,12 +117,13 @@ public class PlayerMovement : MonoBehaviour
             attackButton.enabled = false;
             delay = Time.time + 5;
         }
-        else if (animatorState.IsName("PlayerDeath") || animatorState.IsName("PlayerDeathGhost") || animatorState.IsName("SpecialAttack"))
+        else if (animatorState.IsName("BranchAttack"))
         {
-            specialAttackButton.enabled = false;
+            Attack();
             attackButton.enabled = false;
+            specialAttackButton.enabled = false;
         }
-        else
+        else if(!IsDead)
         {
             attackButton.enabled = true;
             specialAttackButton.enabled = true;
@@ -161,6 +161,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 animator.SetTrigger("Death");
                 IsDead = true;
+                attackButton.enabled = false;
             }
             nextHurtTime = Time.time + invincabilityframes;
         }
