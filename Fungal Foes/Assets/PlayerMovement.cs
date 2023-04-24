@@ -38,6 +38,8 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         //ResetMaxHealth();
+        //ResetMaxSpeed();
+        //ResetMaxAttack();
         currentHealth = MaxHealth;
         healthbar.SetMaxhealth(MaxHealth);
         float savedMaxHealth = PlayerPrefs.GetFloat("MaxHealth");
@@ -48,11 +50,14 @@ public class PlayerMovement : MonoBehaviour
             currentHealth = MaxHealth;
         }
 
-        //// Retrieve the "Speed" value from PlayerPrefs
-        //float speed = PlayerPrefs.GetFloat("Speed", moveSpeed);
+        // Retrieve the "Speed" value from PlayerPrefs
+        float speed = PlayerPrefs.GetFloat("Speed", moveSpeed);
 
-        //// Set the moveSpeed variable to the retrieved value
-        //moveSpeed = speed;
+        // Set the moveSpeed variable to the retrieved value
+        moveSpeed = speed;
+
+        int damage = PlayerPrefs.GetInt("SpecialAtackDamage", SpecialAtackDamage);
+        SpecialAtackDamage = damage;
 
     }
 
@@ -63,11 +68,17 @@ public class PlayerMovement : MonoBehaviour
         healthbar.SetMaxhealth(MaxHealth);
     }
 
-    //public void ResetMaxSpeed()
-    //{
-    //    PlayerPrefs.DeleteKey("Speed");
-    //    moveSpeed = 5; // default maximum health value
-    //}
+    public void ResetMaxSpeed()
+    {
+        PlayerPrefs.DeleteKey("Speed");
+        moveSpeed = 5; // default maximum health value
+    }
+
+    public void ResetMaxAttack()
+    {
+        PlayerPrefs.DeleteKey("SpecialAtackDamage");
+        SpecialAtackDamage = 30; // default maximum health value
+    }
 
 
     // Update is called once per frame
