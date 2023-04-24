@@ -104,18 +104,18 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         AnimatorStateInfo animatorState = animator.GetCurrentAnimatorStateInfo(0);
-        if (animatorState.IsName("PlayerDeath") || animatorState.IsName("PlayerDeathGhost") || animatorState.IsName("SpecialAttack"))
-        {
-            specialAttackButton.enabled = false;
-            attackButton.enabled = false;
-        }
-        else if(animatorState.IsName("SpecialAttack") && Time.time > delay)
+        if(animatorState.IsName("SpecialAttack") && Time.time > delay)
         {
             StartCoroutine(SpecialAttack());
             nextHurtTime = Time.time + 1;
             specialAttackButton.enabled = false;
             attackButton.enabled = false;
             delay = Time.time + 5;
+        }
+        else if (animatorState.IsName("PlayerDeath") || animatorState.IsName("PlayerDeathGhost") || animatorState.IsName("SpecialAttack"))
+        {
+            specialAttackButton.enabled = false;
+            attackButton.enabled = false;
         }
         else if (animatorState.IsName("BranchAttack"))
         {
