@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class StoreManager : MonoBehaviour
 {
@@ -13,8 +14,10 @@ public class StoreManager : MonoBehaviour
     public StoreTemplate[] storePanels;
     public Button[] purchaseButton;
 
+
     private void Start()
     {
+
         //PlayerPrefs.DeleteKey("CurrentItem");
         //for (int i = 0; i < storeItem.Length; i++)
         //{
@@ -24,6 +27,8 @@ public class StoreManager : MonoBehaviour
         coins = coinManager.score;
         LoadPanels();
         CheckPurchase();
+
+
     }
 
     public void LoadPanels()
@@ -88,6 +93,8 @@ public class StoreManager : MonoBehaviour
                         {
                             purchaseButton[i].GetComponentInChildren<TMP_Text>().text = "USING";
                             purchaseButton[i].interactable = false;
+
+
                         }
                         else
                         {
