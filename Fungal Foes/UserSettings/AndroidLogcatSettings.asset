@@ -1,9 +1,9 @@
 {
     "m_SelectedDeviceId": "RFCTC11VENK",
     "m_SelectedPackage": {
-        "deviceId": "RFCTC11VENK",
-        "name": "com.DefaultCompany.com.unity.template.mobile2D",
-        "processId": 7181,
+        "deviceId": "",
+        "name": "",
+        "processId": 0,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -47,56 +47,26 @@
         {
             "deviceId": "RFCTC11VENK",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 7745,
-            "exited": true
-        },
-        {
-            "deviceId": "RFCTC11VENK",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 8359,
-            "exited": true
-        },
-        {
-            "deviceId": "RFCTC11VENK",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 8898,
-            "exited": true
-        },
-        {
-            "deviceId": "RFCTC11VENK",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 27592,
-            "exited": true
-        },
-        {
-            "deviceId": "RFCTC11VENK",
-            "name": "com.sec.android.app.launcher",
-            "processId": 5581,
-            "exited": false
-        },
-        {
-            "deviceId": "RFCTC11VENK",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 30970,
-            "exited": false
-        },
-        {
-            "deviceId": "RFCTC11VENK",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 4594,
-            "exited": false
-        },
-        {
-            "deviceId": "RFCTC11VENK",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 6704,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "RFCTC11VENK",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 7181,
-            "exited": false
+            "exited": true
+        },
+        {
+            "deviceId": "RFCTC11VENK",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 8048,
+            "exited": true
+        },
+        {
+            "deviceId": "RFCTC11VENK",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 8466,
+            "exited": true
         }
     ],
     "m_Tags": {
