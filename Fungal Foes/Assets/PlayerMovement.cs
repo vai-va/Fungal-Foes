@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+
     public FixedJoystick Joystick;
     Rigidbody2D rb;
     private Vector2 move;
@@ -13,7 +14,11 @@ public class PlayerMovement : MonoBehaviour
     public Transform AttackPoint;
     public float AttackRange = 0.5f;
     public LayerMask Enemylayers;
-    public int Damage;
+
+    public int branchDamage;
+    public int swordDamage;
+    public int flamingSwordDamage;
+
     public int SpecialAtackDamage;
     public int MaxHealth;
     private int currentHealth;
@@ -31,7 +36,6 @@ public class PlayerMovement : MonoBehaviour
     private bool hasPlayedSpecialAttack = false;
 
     //public Transform interactor;
-
 
 
     void Start()
@@ -154,7 +158,7 @@ public class PlayerMovement : MonoBehaviour
             specialAttackButton.enabled = false;
             attackButton.enabled = false;
         }
-        else if (animatorState.IsName("BranchAttack"))
+        else if (animatorState.IsName("BranchAttack") || animatorState.IsName("SwordAttack") || animatorState.IsName("FlamingSwordAttack"))
         {
             Attack();
             attackButton.enabled = false;
@@ -186,7 +190,34 @@ public class PlayerMovement : MonoBehaviour
         //        }
         //    IsAttacking = false;
         //}
+
+
+
+/*        //VAIVOS KODAS
+        if (attackButton.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Pressed")){
+            DetermineAttackType();
+        }
+        //VAIVOS KODAS*/
+
     }
+
+
+/*    private void DetermineAttackType()
+    {
+        if (animator.GetBool("BranchChosen") == true)
+        {
+            animator.PlayInFixedTime("BranchAttack");
+        }
+        else if (animator.GetBool("SwordChosen") == true)
+        {
+            animator.PlayInFixedTime("SwordAttack");
+        }
+        else if (animator.GetBool("FlamingSwordChosen") == true)
+        {
+            animator.PlayInFixedTime("FlamingSwordAttack");
+        }
+        animator.ResetTrigger("Attack");
+    }*/
     public void TakeDamage(int dmg)
     {
         if(Time.time > nextHurtTime && !animator.GetCurrentAnimatorStateInfo(0).IsName("SpecialAttack"))
@@ -206,9 +237,21 @@ public class PlayerMovement : MonoBehaviour
     void Attack()
     {
         Collider2D[] HitEnemies = Physics2D.OverlapCircleAll(AttackPoint.position,AttackRange,Enemylayers);
+        AnimatorStateInfo animatorState = animator.GetCurrentAnimatorStateInfo(0);
         foreach (Collider2D enemy in HitEnemies)
         {
-            enemy.GetComponent<Enemy_AI>().TakeDamage(Damage);
+            if (animatorState.IsName("BranchAttack"))
+            {
+                enemy.GetComponent<Enemy_AI>().TakeDamage(branchDamage);
+            }
+            else if(animatorState.IsName("SwordAttack"))
+            {
+                enemy.GetComponent<Enemy_AI>().TakeDamage(swordDamage);
+            }
+            else
+            {
+                enemy.GetComponent<Enemy_AI>().TakeDamage(flamingSwordDamage);
+            }
         }
     }
     IEnumerator SpecialAttack()
@@ -238,4 +281,5 @@ public class PlayerMovement : MonoBehaviour
             Destroy(collision.gameObject);
         }
     }
+
 }

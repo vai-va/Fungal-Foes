@@ -1,9 +1,9 @@
 {
-    "m_SelectedDeviceId": "RF8M31QMB3P",
+    "m_SelectedDeviceId": "RFCTC11VENK",
     "m_SelectedPackage": {
-        "deviceId": "RF8M31QMB3P",
-        "name": "com.DefaultCompany.com.unity.template.mobile2D",
-        "processId": 16294,
+        "deviceId": "",
+        "name": "",
+        "processId": 0,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -43,6 +43,30 @@
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 16294,
             "exited": false
+        },
+        {
+            "deviceId": "RFCTC11VENK",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 6704,
+            "exited": true
+        },
+        {
+            "deviceId": "RFCTC11VENK",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 7181,
+            "exited": true
+        },
+        {
+            "deviceId": "RFCTC11VENK",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 8048,
+            "exited": true
+        },
+        {
+            "deviceId": "RFCTC11VENK",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 8466,
+            "exited": true
         }
     ],
     "m_Tags": {

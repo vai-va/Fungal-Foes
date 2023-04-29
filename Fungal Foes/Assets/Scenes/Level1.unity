@@ -588,6 +588,7 @@ GameObject:
   - component: {fileID: 119372065}
   - component: {fileID: 119372064}
   - component: {fileID: 119372063}
+  - component: {fileID: 119372066}
   m_Layer: 5
   m_Name: AttackButton
   m_TagString: Untagged
@@ -658,19 +659,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 119372064}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1012174891}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: Play
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: BranchAttack
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &119372064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -709,6 +698,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119372061}
   m_CullTransparentMesh: 1
+--- !u!114 &119372066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119372061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cb65c861d2f0384ba73b7afefbabc29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 119372063}
+  player: {fileID: 1012174885}
 --- !u!1 &211733215
 GameObject:
   m_ObjectHideFlags: 0
@@ -1525,7 +1528,9 @@ MonoBehaviour:
   Enemylayers:
     serializedVersion: 2
     m_Bits: 64
-  Damage: 15
+  branchDamage: 15
+  swordDamage: 50
+  flamingSwordDamage: 100
   SpecialAtackDamage: 30
   MaxHealth: 100
   healthbar: {fileID: 1786889375}
