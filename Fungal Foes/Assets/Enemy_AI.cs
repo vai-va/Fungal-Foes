@@ -16,6 +16,7 @@ public class Enemy_AI : MonoBehaviour
     public int Damage;
     private EnemySpawner enemySpawner; // Add reference to EnemySpawner script here
     private float distance;
+    public float DeathAnimationTime;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +34,7 @@ public class Enemy_AI : MonoBehaviour
     {
         if(anim.GetBool("IsDead"))
         {
-            StartCoroutine(waitForAnimation());
+            StartCoroutine(waitForAnimation(DeathAnimationTime));
         }
         else
         {
@@ -75,9 +76,9 @@ public class Enemy_AI : MonoBehaviour
         }
 
         }
-    IEnumerator waitForAnimation()
+    IEnumerator waitForAnimation(float time)
     {
-        yield return new WaitForSeconds(1.3f);
+        yield return new WaitForSeconds(time);
         int coinValue = Random.Range(1, 4);
         enemySpawner.DropCoins(transform.position, coinValue);
         Destroy(gameObject);

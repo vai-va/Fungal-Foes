@@ -141,6 +141,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   Damage: 10
+  DeathAnimationTime: 1.3
 --- !u!95 &1225973318697894665
 Animator:
   serializedVersion: 5
