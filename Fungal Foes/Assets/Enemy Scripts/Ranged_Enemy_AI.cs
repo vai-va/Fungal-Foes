@@ -17,8 +17,10 @@ public class Ranged_Enemy_AI : MonoBehaviour
     private EnemySpawner enemySpawner; // Add reference to EnemySpawner script here
     private float distance;
     public float DeathAnimationTime;
-    private float ShootingCooldown;
-    public float StartShootCooldown;
+    public GameObject bullet;
+    public float FireRate = 1f;
+    private float nextFireTime;
+    public bool animation_finished;
 
     // Start is called before the first frame update
     void Start()
@@ -29,12 +31,15 @@ public class Ranged_Enemy_AI : MonoBehaviour
 
         // Find EnemySpawner script in the scene and assign it to the enemySpawner variable
         enemySpawner = GameObject.FindObjectOfType<EnemySpawner>();
-        ShootingCooldown = StartShootCooldown;
     }
 
     // Update is called once per frame
     private void FixedUpdate()
     {
+        Vector2 direction = Player.transform.position - transform.position;
+        direction.Normalize();
+        anim.SetFloat("x", direction.x);
+        anim.SetFloat("y", direction.y);
         if (anim.GetBool("IsDead"))
         {
             StartCoroutine(waitForAnimation(DeathAnimationTime));
@@ -42,28 +47,26 @@ public class Ranged_Enemy_AI : MonoBehaviour
         else
         {
             distance = Vector2.Distance(transform.position, Player.transform.position);
-            if (distance > distanceFromPlayer && !anim.GetCurrentAnimatorStateInfo(0).IsName("Damaged"))
+            if (distance > distanceFromPlayer && !anim.GetCurrentAnimatorStateInfo(0).IsName("Damaged") && !anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
             {
-                Vector2 direction = Player.transform.position - transform.position;
-                direction.Normalize();
-                anim.SetFloat("x", direction.x);
-                anim.SetFloat("y", direction.y);
                 transform.position = Vector2.MoveTowards(transform.position, Player.transform.position, speed * Time.deltaTime);
             }
-            else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Damaged"))
+            else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Damaged") && nextFireTime < Time.time && distance <= distanceFromPlayer)
             {
-                Attack();
+                anim.SetTrigger("Attack");
+                StartCoroutine("Attack");
+                nextFireTime = Time.time + FireRate;
             }
         }
     }
 
-    void Attack()
+    IEnumerator Attack()
     {
-        Collider2D[] HitPlayer = Physics2D.OverlapCircleAll(AttackPoint.position, AttackRange, PlayerLayer);
-        foreach (Collider2D player in HitPlayer)
-        {
-            player.GetComponent<PlayerMovement>().TakeDamage(Damage);
-        }
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length - 0.1f);
+        Vector2 direction = Player.transform.position - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        Quaternion q = Quaternion.Euler(new Vector3(0, 0, angle));
+        Instantiate(bullet, AttackPoint.position, q);
     }
 
     public void TakeDamage(int damage)
