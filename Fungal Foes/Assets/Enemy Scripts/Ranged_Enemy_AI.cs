@@ -13,14 +13,12 @@ public class Ranged_Enemy_AI : MonoBehaviour
     public Transform AttackPoint;
     public float AttackRange = 2f;
     public LayerMask PlayerLayer;
-    public int Damage;
     private EnemySpawner enemySpawner; // Add reference to EnemySpawner script here
     private float distance;
     public float DeathAnimationTime;
     public GameObject bullet;
-    public float FireRate = 1f;
+    public float FireRate = 6f;
     private float nextFireTime;
-    public bool animation_finished;
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +60,7 @@ public class Ranged_Enemy_AI : MonoBehaviour
 
     IEnumerator Attack()
     {
+        yield return new WaitForEndOfFrame();
         yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length - 0.1f);
         Vector2 direction = Player.transform.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
