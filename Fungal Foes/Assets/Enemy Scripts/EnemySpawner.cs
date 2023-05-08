@@ -12,6 +12,8 @@ public class EnemySpawner : MonoBehaviour
     public List<GameObject> enemiesToSpawn = new List<GameObject>();
     public GameObject CoinPrefab;
 
+    public float delay = 2f;
+    public GameObject finishPanel;
 
     // Start is called before the first frame update
     void Start()
@@ -38,12 +40,19 @@ public class EnemySpawner : MonoBehaviour
             }
             else if(LevelValue <= 0)
             {
+                // show game over panel after a delay
+                Invoke("ShowFinishPanel", delay);
                 break;
             }
         }
         enemiesToSpawn.Clear();
         enemiesToSpawn = generatedEnemies;
+    }
 
+    private void ShowFinishPanel()
+    {
+        finishPanel.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     // Update is called once per frame
