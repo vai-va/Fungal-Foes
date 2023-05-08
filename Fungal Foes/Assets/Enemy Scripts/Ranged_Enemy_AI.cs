@@ -64,7 +64,7 @@ public class Ranged_Enemy_AI : MonoBehaviour
     {
         yield return new WaitUntil(() => anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"));
         yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length-0.4f);
-        if(!anim.GetCurrentAnimatorStateInfo(0).IsName("Damaged"))
+        if(!anim.GetCurrentAnimatorStateInfo(0).IsName("Damaged") && !anim.GetBool("IsDead"))
         {
             Vector2 direction = Player.transform.position - transform.position;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
