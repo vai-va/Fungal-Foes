@@ -19,6 +19,8 @@ public class Ranged_Enemy_AI : MonoBehaviour
     public GameObject bullet;
     public float FireRate = 6f;
     private float nextFireTime;
+    public float invincabilityframes = 2f;
+    private float invincible = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -52,7 +54,7 @@ public class Ranged_Enemy_AI : MonoBehaviour
             else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Damaged") && nextFireTime < Time.time && distance <= distanceFromPlayer)
             {
                 anim.SetTrigger("Attack");
-                StartCoroutine("Attack");
+                StartCoroutine(Attack());
                 nextFireTime = Time.time + FireRate;
             }
         }
@@ -60,18 +62,22 @@ public class Ranged_Enemy_AI : MonoBehaviour
 
     IEnumerator Attack()
     {
-        yield return new WaitForEndOfFrame();
-        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length - 0.1f);
-        Vector2 direction = Player.transform.position - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        Quaternion q = Quaternion.Euler(new Vector3(0, 0, angle));
-        Instantiate(bullet, AttackPoint.position, q);
+        yield return new WaitUntil(() => anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"));
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length-0.4f);
+        if(!anim.GetCurrentAnimatorStateInfo(0).IsName("Damaged"))
+        {
+            Vector2 direction = Player.transform.position - transform.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            Quaternion q = Quaternion.Euler(new Vector3(0, 0, angle));
+            Instantiate(bullet, AttackPoint.position, q);
+        }
     }
 
     public void TakeDamage(int damage)
     {
-        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Damaged") && !anim.GetBool("IsDead"))
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Damaged") && !anim.GetBool("IsDead") && invincible < Time.time)
         {
+            invincible = Time.time + invincabilityframes;
             anim.SetTrigger("Hurt");
             currentHealth -= damage;
             if (currentHealth <= 0)
