@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5123736970929610567}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 5123736971276635811}
   - component: {fileID: 5123736971276635822}
   - component: {fileID: 5123736971276635823}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Bingo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,3 +179,4 @@ MonoBehaviour:
   DeathAnimationTime: 2.1
   bullet: {fileID: 2549060290617033584, guid: 6db5dde8b905efc43a0b4f5b03808ce3, type: 3}
   FireRate: 4
+  invincabilityframes: 2
