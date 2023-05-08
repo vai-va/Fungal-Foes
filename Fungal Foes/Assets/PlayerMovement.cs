@@ -33,7 +33,10 @@ public class PlayerMovement : MonoBehaviour
     public Button specialAttackButton;
     public Button attackButton;
 
+    public GameObject gameOverPanel;
+
     private bool hasPlayedSpecialAttack = false;
+    public float gameOverDelay = 4f;
 
     //public Transform interactor;
 
@@ -230,10 +233,20 @@ public class PlayerMovement : MonoBehaviour
                 animator.SetTrigger("Death");
                 IsDead = true;
                 attackButton.enabled = false;
+
+                // show game over panel after a delay
+                Invoke("ShowGameOverPanel", gameOverDelay);
             }
             nextHurtTime = Time.time + invincabilityframes;
         }
     }
+
+    private void ShowGameOverPanel()
+    {
+        gameOverPanel.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
     void Attack()
     {
         Collider2D[] HitEnemies = Physics2D.OverlapCircleAll(AttackPoint.position,AttackRange,Enemylayers);
