@@ -2066,7 +2066,7 @@ MonoBehaviour:
   IsDead: 0
   specialAttackButton: {fileID: 83869039}
   attackButton: {fileID: 119372063}
-  gameOverPanel: {fileID: 1628171529}
+  gameOverPanel: {fileID: 0}
   gameOverDelay: 4
 --- !u!50 &1012174887
 Rigidbody2D:
@@ -4351,6 +4351,8 @@ MonoBehaviour:
   LevelValue: 60
   enemiesToSpawn: []
   CoinPrefab: {fileID: 5211723524078355105, guid: 3b6277410de814dd8a04ff411914aedd, type: 3}
+  delay: 2
+  finishPanel: {fileID: 1938330036}
 --- !u!4 &2000127065
 Transform:
   m_ObjectHideFlags: 0
@@ -4622,6 +4624,8 @@ MonoBehaviour:
   LevelValue: 35
   enemiesToSpawn: []
   CoinPrefab: {fileID: 5211723524078355105, guid: 3b6277410de814dd8a04ff411914aedd, type: 3}
+  delay: 2
+  finishPanel: {fileID: 1938330036}
 --- !u!4 &2090153579
 Transform:
   m_ObjectHideFlags: 0
