@@ -242,15 +242,36 @@ public class PlayerMovement : MonoBehaviour
         {
             if (animatorState.IsName("BranchAttack"))
             {
-                enemy.GetComponent<Enemy_AI>().TakeDamage(branchDamage);
+                if(enemy.gameObject.layer == 8)
+                {
+                    enemy.GetComponent<Ranged_Enemy_AI>().TakeDamage(branchDamage);
+                }
+                else if(enemy.gameObject.layer == 6)
+                {
+                    enemy.GetComponent<Enemy_AI>().TakeDamage(branchDamage);
+                }
             }
             else if(animatorState.IsName("SwordAttack"))
             {
-                enemy.GetComponent<Enemy_AI>().TakeDamage(swordDamage);
+                if (enemy.gameObject.layer == 8)
+                {
+                    enemy.GetComponent<Ranged_Enemy_AI>().TakeDamage(swordDamage);
+                }
+                else if (enemy.gameObject.layer == 6)
+                {
+                    enemy.GetComponent<Enemy_AI>().TakeDamage(swordDamage);
+                }
             }
             else
             {
-                enemy.GetComponent<Enemy_AI>().TakeDamage(flamingSwordDamage);
+                if (enemy.gameObject.layer == 8)
+                {
+                    enemy.GetComponent<Ranged_Enemy_AI>().TakeDamage(flamingSwordDamage);
+                }
+                else if (enemy.gameObject.layer == 6)
+                {
+                    enemy.GetComponent<Enemy_AI>().TakeDamage(flamingSwordDamage);
+                }
             }
         }
     }
@@ -264,14 +285,6 @@ public class PlayerMovement : MonoBehaviour
         {
             enemy.GetComponent<Enemy_AI>().TakeDamage(SpecialAtackDamage);
         }
-    }
-    private void OnDrawGizmosSelected()
-    {
-        if(AttackPoint == null)
-        {
-            return;
-        }
-        Gizmos.DrawWireSphere(AttackPoint.position,AttackRange);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
