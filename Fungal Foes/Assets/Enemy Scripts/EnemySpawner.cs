@@ -41,7 +41,7 @@ public class EnemySpawner : MonoBehaviour
             else if(LevelValue <= 0)
             {
                 // show game over panel after a delay
-                Invoke("ShowFinishPanel", delay);
+                //Invoke("ShowFinishPanel", delay);
                 break;
             }
         }

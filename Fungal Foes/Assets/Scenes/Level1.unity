@@ -2066,7 +2066,7 @@ MonoBehaviour:
   IsDead: 0
   specialAttackButton: {fileID: 83869039}
   attackButton: {fileID: 119372063}
-  gameOverPanel: {fileID: 0}
+  gameOverPanel: {fileID: 1628171529}
   gameOverDelay: 4
 --- !u!50 &1012174887
 Rigidbody2D:
@@ -3799,7 +3799,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1650808987}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1938330040}
+        m_TargetAssemblyTypeName: FinishedGameManager, Assembly-CSharp
+        m_MethodName: GoToMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1650808987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4243,6 +4255,7 @@ GameObject:
   - component: {fileID: 1938330037}
   - component: {fileID: 1938330039}
   - component: {fileID: 1938330038}
+  - component: {fileID: 1938330040}
   m_Layer: 5
   m_Name: Finished Game Panel
   m_TagString: Untagged
@@ -4312,6 +4325,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1938330036}
   m_CullTransparentMesh: 1
+--- !u!114 &1938330040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938330036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88b097b0e777f4b258d9c4b3eca1b6f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finishPanel: {fileID: 1938330036}
 --- !u!1 &2000127063
 GameObject:
   m_ObjectHideFlags: 0
