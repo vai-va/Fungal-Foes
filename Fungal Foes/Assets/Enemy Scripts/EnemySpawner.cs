@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -53,6 +54,26 @@ public class EnemySpawner : MonoBehaviour
     {
         finishPanel.SetActive(true);
         Time.timeScale = 0f;
+
+        // Get the current scene's name
+        string currentScene = SceneManager.GetActiveScene().name;
+
+        if (currentScene == "Level1")
+        {
+            // Save the completed level in PlayerPrefs
+            PlayerPrefs.SetString(currentScene, "completed");
+            PlayerPrefs.Save();
+        }
+        else if (currentScene == "Level2")
+        {
+            PlayerPrefs.SetString(currentScene, "completed");
+            PlayerPrefs.Save();
+        }
+        else
+        {
+            PlayerPrefs.SetString(currentScene, "completed");
+            PlayerPrefs.Save();
+        }
     }
 
     // Update is called once per frame

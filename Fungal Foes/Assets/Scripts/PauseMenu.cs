@@ -21,8 +21,24 @@ public class PauseMenu : MonoBehaviour
 
     public void Restart()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("Level1");
+        string currentScene = SceneManager.GetActiveScene().name;
+
+        if (currentScene == "Level1")
+        {
+            // Save the completed level in PlayerPrefs
+            Time.timeScale = 1f;
+            SceneManager.LoadScene("Level1");
+        }
+        else if (currentScene == "Level2")
+        {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene("Level2");
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene("Level3");
+        }
     }
 
     public void Menu()

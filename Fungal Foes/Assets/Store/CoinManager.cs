@@ -18,7 +18,7 @@ public class CoinManager : MonoBehaviour
             instance = this;
         }
 
-        if (SceneManager.GetActiveScene().name == "Store" || SceneManager.GetActiveScene().name == "Level1")
+        if (SceneManager.GetActiveScene().name == "Store" || SceneManager.GetActiveScene().name == "Level1" || SceneManager.GetActiveScene().name == "Level2" || SceneManager.GetActiveScene().name == "Level3")
         {
             if (PlayerPrefs.HasKey("CoinScore"))
             {
