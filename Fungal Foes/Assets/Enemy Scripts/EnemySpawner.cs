@@ -38,7 +38,7 @@ public class EnemySpawner : MonoBehaviour
                 generatedEnemies.Add(enemies[RandomEnemyId].EnemyPrefab);
                 LevelValue -= RandomEnemycost;
             }
-            else if(LevelValue <= 0)
+            else if(LevelValue - RandomEnemycost <= 0)
             {
                 // show game over panel after a delay
                 //Invoke("ShowFinishPanel", delay);

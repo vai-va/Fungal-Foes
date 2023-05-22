@@ -4368,13 +4368,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnLocation: {fileID: 1294538274}
-  spawnInterval: 20
+  spawnInterval: 10
   enemies:
-  - EnemyPrefab: {fileID: 5288553784741861976, guid: 7214338762023ac47a5a9d8ec2a34301, type: 3}
-    cost: 20
-  - EnemyPrefab: {fileID: 2360171602974957495, guid: 9f98490ce109d7149baf477dae91c8c5, type: 3}
+  - EnemyPrefab: {fileID: 1225973318697894671, guid: fb8d19755be121342a92345ec53752bf, type: 3}
     cost: 10
-  LevelValue: 60
+  - EnemyPrefab: {fileID: 1773602719886437570, guid: 6ce3130e97547e94185cd77d5e235608, type: 3}
+    cost: 20
+  - EnemyPrefab: {fileID: 8949718119161728458, guid: a7338930c4bef2c4d8e2189db354ad2c, type: 3}
+    cost: 30
+  - EnemyPrefab: {fileID: 2360171602974957495, guid: 9f98490ce109d7149baf477dae91c8c5, type: 3}
+    cost: 35
+  - EnemyPrefab: {fileID: 5288553784741861976, guid: 7214338762023ac47a5a9d8ec2a34301, type: 3}
+    cost: 40
+  LevelValue: 150
   enemiesToSpawn: []
   CoinPrefab: {fileID: 5211723524078355105, guid: 3b6277410de814dd8a04ff411914aedd, type: 3}
   delay: 2
@@ -4637,17 +4643,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnLocation: {fileID: 664340478}
-  spawnInterval: 10
+  spawnInterval: 7
   enemies:
   - EnemyPrefab: {fileID: 1225973318697894671, guid: fb8d19755be121342a92345ec53752bf, type: 3}
-    cost: 1
-  - EnemyPrefab: {fileID: 1773602719886437570, guid: 6ce3130e97547e94185cd77d5e235608, type: 3}
-    cost: 2
-  - EnemyPrefab: {fileID: 8949718119161728458, guid: a7338930c4bef2c4d8e2189db354ad2c, type: 3}
-    cost: 3
-  - EnemyPrefab: {fileID: 2360171602974957495, guid: 9f98490ce109d7149baf477dae91c8c5, type: 3}
     cost: 10
-  LevelValue: 35
+  - EnemyPrefab: {fileID: 1773602719886437570, guid: 6ce3130e97547e94185cd77d5e235608, type: 3}
+    cost: 20
+  - EnemyPrefab: {fileID: 8949718119161728458, guid: a7338930c4bef2c4d8e2189db354ad2c, type: 3}
+    cost: 30
+  - EnemyPrefab: {fileID: 2360171602974957495, guid: 9f98490ce109d7149baf477dae91c8c5, type: 3}
+    cost: 35
+  - EnemyPrefab: {fileID: 5288553784741861976, guid: 7214338762023ac47a5a9d8ec2a34301, type: 3}
+    cost: 40
+  LevelValue: 150
   enemiesToSpawn: []
   CoinPrefab: {fileID: 5211723524078355105, guid: 3b6277410de814dd8a04ff411914aedd, type: 3}
   delay: 2
