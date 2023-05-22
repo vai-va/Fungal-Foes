@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: FlamingSword
   m_EditorClassIdentifier: 
   title: Flaming sword
-  baseCost: 200
+  baseCost: 50
   image: {fileID: 21300000, guid: fa669a91acbe022479719246168c2572, type: 3}

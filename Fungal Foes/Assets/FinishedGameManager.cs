@@ -16,11 +16,22 @@ public class FinishedGameManager : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-    //public void NewGame()
-    //{
-    //    // Reload the current scene
-    //    SceneManager.LoadScene("Level2");
-    //}
+    public void NewGame()
+    {
+        string currentScene = SceneManager.GetActiveScene().name;
+        if (currentScene == "Level1")
+        {
+            // Reload the current scene
+            SceneManager.LoadScene("Level2");
+            Time.timeScale = 1f;
+        }
+        if (currentScene == "Level2")
+        {
+            // Reload the current scene
+            SceneManager.LoadScene("Level3");
+            Time.timeScale = 1f;
+        }
+    }
 
     public void GoToMainMenu()
     {

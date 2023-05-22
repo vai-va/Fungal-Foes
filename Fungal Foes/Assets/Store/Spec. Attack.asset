@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Spec. Attack
   m_EditorClassIdentifier: 
   title: SPC ATTACK
-  baseCost: 200
+  baseCost: 55

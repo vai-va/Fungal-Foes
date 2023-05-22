@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SpeedUp
   m_EditorClassIdentifier: 
   title: Speed
-  baseCost: 175
+  baseCost: 45

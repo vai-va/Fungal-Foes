@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: HealthUp
   m_EditorClassIdentifier: 
   title: Health
-  baseCost: 150
+  baseCost: 35

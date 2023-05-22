@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Sword
   m_EditorClassIdentifier: 
   title: Sword
-  baseCost: 150
+  baseCost: 30
   image: {fileID: 21300000, guid: 4a81c35416e155349948c3ef0afc6561, type: 3}
