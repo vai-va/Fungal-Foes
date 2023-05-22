@@ -140,18 +140,12 @@ public class StoreManager : MonoBehaviour
                 else
                 {
                     purchaseButton[i].GetComponentInChildren<TMP_Text>().text = "BUY";
-                    if (coins >= storeItem[i].baseCost)
-                    {
-                        purchaseButton[i].interactable = true;
-                    }
-                    else
-                    {
-                        purchaseButton[i].interactable = false;
-                    }
+                    purchaseButton[i].interactable = true;
                 }
             }
         }
     }
+
 }
 
 
