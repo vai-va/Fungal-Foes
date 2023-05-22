@@ -11,8 +11,18 @@ public class LevelNavigator1 : MonoBehaviour
         
     }
 
-    public void OpenScene()
+    public void OpenScene1()
     {
         SceneManager.LoadScene("Level1");
+    }
+
+    public void OpenScene2()
+    {
+        SceneManager.LoadScene("Level2");
+    }
+
+    public void OpenScene3()
+    {
+        SceneManager.LoadScene("Level3");
     }
 }
