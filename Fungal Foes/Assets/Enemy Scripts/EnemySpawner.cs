@@ -58,7 +58,7 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(enemiesToSpawn.Count > 0)
+        if (enemiesToSpawn.Count > 0)
         {
             if (spawntimer <= 0)
             {
@@ -69,6 +69,23 @@ public class EnemySpawner : MonoBehaviour
             else
             {
                 spawntimer -= Time.fixedDeltaTime;
+            }
+        }
+        else
+        {
+            GameObject[] sceneObjects = FindObjectsOfType<GameObject>();
+            bool flag = true;
+            // Iterate through each object
+            foreach (GameObject obj in sceneObjects)
+            {
+                if (obj.tag == "Enemy")
+                {
+                    flag = false;
+                }
+            }
+            if (flag)
+            {
+                Invoke("ShowFinishPanel", delay);
             }
         }
     }
