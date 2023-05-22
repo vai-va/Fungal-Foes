@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "RFCTC11VENK",
         "name": "com.DefaultCompany.com.unity.template.mobile2D",
-        "processId": 27902,
+        "processId": 29110,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -90,6 +90,12 @@
             "deviceId": "RFCTC11VENK",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 27902,
+            "exited": false
+        },
+        {
+            "deviceId": "RFCTC11VENK",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 29110,
             "exited": false
         }
     ],
