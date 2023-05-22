@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "RFCTC11VENK",
         "name": "com.DefaultCompany.com.unity.template.mobile2D",
-        "processId": 19937,
+        "processId": 27902,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -47,85 +47,49 @@
         {
             "deviceId": "RFCTC11VENK",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 6704,
-            "exited": true
-        },
-        {
-            "deviceId": "RFCTC11VENK",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 7181,
-            "exited": true
-        },
-        {
-            "deviceId": "RFCTC11VENK",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 8048,
-            "exited": true
-        },
-        {
-            "deviceId": "RFCTC11VENK",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 8466,
-            "exited": true
-        },
-        {
-            "deviceId": "RFCTC11VENK",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 30858,
-            "exited": false
-        },
-        {
-            "deviceId": "RFCTC11VENK",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 31567,
-            "exited": false
-        },
-        {
-            "deviceId": "RFCTC11VENK",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 3831,
-            "exited": false
-        },
-        {
-            "deviceId": "RFCTC11VENK",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 9337,
-            "exited": false
-        },
-        {
-            "deviceId": "RFCTC11VENK",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 10438,
-            "exited": false
-        },
-        {
-            "deviceId": "RFCTC11VENK",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 11084,
-            "exited": false
-        },
-        {
-            "deviceId": "RFCTC11VENK",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 18173,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "RFCTC11VENK",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 18951,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "RFCTC11VENK",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 19390,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "RFCTC11VENK",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 19937,
+            "exited": true
+        },
+        {
+            "deviceId": "RFCTC11VENK",
+            "name": "com.android.settings",
+            "processId": 23814,
+            "exited": false
+        },
+        {
+            "deviceId": "RFCTC11VENK",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 26563,
+            "exited": false
+        },
+        {
+            "deviceId": "RFCTC11VENK",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 27245,
+            "exited": false
+        },
+        {
+            "deviceId": "RFCTC11VENK",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 27902,
             "exited": false
         }
     ],
